@@ -23,7 +23,7 @@
         <!-- Set the background colour of the document -->
         <style>
             body {
-                background: #0;
+                background: #000;
                 color: #cccccc;
                 margin: 0px;
                 padding: 0px;
@@ -94,6 +94,8 @@
             
             <!-- Builtin injector for splash screen -->
              
+            <!-- Additional code end -->
+
             <!-- Addition to disable long pause on 'touchstart' -->
             <!-- event, for gesture detection                   -->
             <script>
@@ -101,7 +103,6 @@
                     e.preventDefault();
                 }, {passive: false})
             </script>
-            <!-- Additional code end -->
 
             <!-- Create the canvas element the game draws to -->
             <canvas id="canvas" width="1080" height="1920" >
