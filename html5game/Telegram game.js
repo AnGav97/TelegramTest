@@ -49,6 +49,35 @@ _S6:0,_T6:0,_U6:64,_V6:64,_W6:64,_X6:64,_Y6:1},{x:1940,y:76,_E4:62,_F4:62,_S6:1,
 y:146,_E4:62,_F4:60,_S6:1,_T6:1,_U6:62,_V6:60,_W6:64,_X6:64,_Y6:1},{x:1818,y:740,_E4:57,_F4:57,_S6:3,_T6:4,_U6:57,_V6:57,_W6:64,_X6:64,_Y6:1},{x:1088,y:1044,_E4:62,_F4:10,_S6:1,_T6:27,_U6:62,_V6:10,_W6:64,_X6:64,_Y6:1},{x:1649,y:4,_E4:1,_F4:1,_S6:31,_T6:31,_U6:1,_V6:1,_W6:64,_X6:64,_Y6:1}],_Z6:["Telegram game_texture_0.png","Telegram game_texture_1.png"],__6:[{MipsToGenerate:0},{MipsToGenerate:0}],_07:[{_T3:"__YY__0fallbacktexture.png_YYG_AUTO_GEN_TEX_GROUP_NAME_",_17:[0],_27:[],_37:[],_47:[],_57:[]}
 ,{_T3:"Default",_17:[1],_27:[0,1,2,3,4,5],_37:[],_47:[0],_57:[]}],_67:{"filt+fx":"filt+fx","gx_mod_wallpaper":"gx_mod_wallpaper","nullish":"nullish","login_sso":"login_sso","operagx-yyc":"operagx-yyc","mqtt":"mqtt","audio-fx":"audio-fx","intellisense":"intellisense","test":"test","custom_env":"custom_env","filt+fx":"filt+fx","gx_mod_wallpaper":"gx_mod_wallpaper","gx_mod_gamestrip":"gx_mod_gamestrip","live_wallpaper_subscription":"live_wallpaper_subscription"},_77:{_87:!1,_97:2,_a7:0,_b7:0,_c7:60,
 _d7:4294967295,_e7:1080,_f7:1920,_g7:0,_h7:"b5871d81-b3fb-47e0-90dc-b29dc848a294",_i7:!1,_j7:!0,_k7:!0,scale:1,_l7:!0,_m7:!1,_n7:!1,_o7:!1,_p7:!1,_q7:!1,_r7:!0,_s7:!0,_t7:2,_u7:0,_v7:!1,_w7:!0,_x7:"html5game",_y7:"Default",_z7:0,_A7:!1,_B7:!0,_C7:!0,_D7:!0,_E7:0,_F7:"Telegram game",_G7:[83,249,44,0,0,0,0,0,0,0,0,0,0,0,0,0],_H7:1,_I7:0,_J7:0,_K7:0,_L7:"Created with GameMaker",_M7:!1,_N7:1726263038,_O7:"True"}};function _O4(_P7,_Q7){_P7.x=_R7._S7();_P7.y=_R7._T7();}function _S4(_P7,_Q7){var _U7=_V7();
+
+// Обработчики событий для сворачивания/разворачивания
+window.addEventListener('focus', function() {
+    console.log('Приложение развернуто');
+    game_restart(); // Восстановить рендеринг или состояние игры
+});
+
+window.addEventListener('blur', function() {
+    console.log('Приложение свернуто');
+    // Остановить игру или поставить на паузу
+});
+
+document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+        console.log('Приложение свернуто');
+        // Остановить обновление игры
+    } else {
+        console.log('Приложение развернуто');
+        game_restart(); // Перезапустить рендеринг или графику
+    }
+});
+
+function game_restart() {
+    // Логика перезапуска игры
+    if (typeof yourGameVariable !== 'undefined') {
+        yourGameVariable.redraw(); // или аналогичная функция для перерисовки сцены
+    }
+}
+
 _W7(_U7,true);var _X7=_Y7();_Z7(_X7,YYASSET_REF(0x01000004),false,true,false);__7(_X7,1,1,0,0.2);_08(_X7,0.5,0.5);_18(_X7,15,15,0.2,0);_28(_X7,80,100,0,0);_38(_X7,0.5,270);_48(_X7,0,0,0,0,true);_58(_X7,16777215,16777215,16777215);_68(_X7,1,1,1);_78(_X7,false);_88(_X7,160,160);var _98=_a8(_U7);_b8(_U7,_98,(-32),32,(-32),32,0,0);_c8(_U7,_98,_X7,1);_d8(_U7,_P7.x,_P7.y);}function _U4(_P7,_Q7){_e8(_P7);_f8(YYASSET_REF(0x06000000));_g8(380,450,_h8(_R7._i8()));_g8(380,550,_h8(_R7._j8()));}function _V4(_P7,
 _Q7){if(yyfequal(_R7._k8(),YYASSET_REF(0x03000001))){{_l8(YYASSET_REF(0x03000002));}}else {{_l8(YYASSET_REF(0x03000001));}};}function _Y4(_P7,_Q7){_m8(false);_P7._n8=_R7._i8();_P7._o8=_R7._j8();_p8(_R7._q8[_r8(0,_R7._q8)],_P7._n8,_P7._o8);_s8(_R7._q8[_r8(0,_R7._q8)],yyfplus(_t8(yyfdivide(_t8(_t8(-_t8(_P7._n8))),2)),_t8(yyfdivide(_t8(_u8(_R7._q8[_r8(0,_R7._q8)])),2))),yyfplus(_t8(yyfdivide(_t8(_t8(-_t8(_P7._n8))),2)),_t8(yyfdivide(_t8(_v8(_R7._q8[_r8(0,_R7._q8)])),2))));_w8(_R7._x8,_P7._n8,_P7._o8);
 _y8(_P7._n8,_P7._o8);_z8();_A8();}function __4(_P7,_Q7){if((yyGetBool(yyfnotequal(_R7._i8(),_P7._n8)))||(yyGetBool(yyfnotequal(_R7._j8(),_P7._o8)))){{_P7._n8=_R7._i8();_P7._o8=_R7._j8();_y8(_P7._n8,_P7._o8);_z8();}};}function compile_if_weak_ref(){}function compile_if_used(){}function _B8(){global._C8=true;_o9._E8=true;_p9._E8=true;_e8._E8=true;_V9._E8=true;_W9._E8=true;}function _Ua(){}_Va=[];_Wa=[];_M3._Xa=[];_M3._Ya=[];var _Za=function(__a){this._0b=__a};var _1b={"x":[!0,!0,!0,null,null],"y":[!0,!0,
@@ -2311,7 +2340,7 @@ _ud=_x92-_v92}else if(_x92-this._n82<this._tW){_ud=_x92-this._n82}else if(_x92+t
 this._rW=_qd;this._tW=_ud;this._892(_qd+_u92,_ud+_v92)}}}};_f82.prototype._892=function(_kB,_4m){var _SX1=new _Jt();var __X1=new _Jt();var _7Y1=new _Jt();_SX1._Wt=_kB;_SX1._Xt=_4m;_SX1._Yt=-16000.0;__X1._Wt=_kB;__X1._Xt=_4m;__X1._Yt=0.0;_7Y1._Wt=Math.sin(-this._zW*(Math.PI/180.0));_7Y1._Xt=Math.cos(-this._zW*(Math.PI/180.0));_7Y1._Yt=0.0;var _A92=new _vt();_A92._Kt(_SX1,__X1,_7Y1);var _B92=new _vt();_B92._Mt(this._vW,this._xW,1,32000.0);this._QW(_A92);this._RW(_B92)};_f82.prototype._C92=function(_kB,_4m){
 var _SX1=new _Jt();var __X1=new _Jt();var _7Y1=new _Jt();_SX1._Wt=_kB;_SX1._Xt=_4m;_SX1._Yt=-(this._vW);__X1._Wt=_kB;__X1._Xt=_4m;__X1._Yt=0.0;_7Y1._Wt=Math.sin(-this._zW*(Math.PI/180.0));_7Y1._Xt=Math.cos(-this._zW*(Math.PI/180.0));_7Y1._Yt=0.0;var _A92=new _vt();_A92._Kt(_SX1,__X1,_7Y1);var _B92=new _vt();_B92._Cu(1.0,-(this._xW)/(this._vW),1,32000.0);this._QW(_A92);this._RW(_B92)};function _s8(_kB,_4m,_D92){var _R82=_nW._B82(yyGetInt32(_kB));if(_R82!=null){_R82._W82(yyGetReal(_4m));_R82._X82(yyGetReal(_D92));
 _R82._892(_R82._992()+_R82._a92()*0.5,_R82._b92()+_R82._c92()*0.5)}};function _p8(_kB,_4m,_D92){var _R82=_nW._B82(yyGetInt32(_kB));if(_R82!=null){_R82._Y82(yyGetReal(_4m));_R82._Z82(yyGetReal(_D92));_R82._892(_R82._992()+_R82._a92()*0.5,_R82._b92()+_R82._c92()*0.5)}};function _u8(_kB){var _R82=_nW._B82(yyGetInt32(_kB));if(_R82!=null){return _R82._a92()}return -1};function _v8(_kB){var _R82=_nW._B82(yyGetInt32(_kB));if(_R82!=null){return _R82._c92()}return -1};var _E92=!1,_HN=-1,_IN=-1,_F92=0,_G92=1,_H92=2,
-_I92=3,_J92=4,_K92=5,_L92=6,_M92=7,_N92=8,_O92=9,_P92=10,_Q92=11,_R92=[0,0,0],_S92=[0,0,0],_T92=[0,0,0,0,0,0],_U92=[0,0,0],_V92=[0,0,0],_W92=[0,0,0],_X92=[0,0,0],_Y92=[0,0,0],_Z92=[0,0,0],__92=[0,0,0],_0a2=0,_1a2=0;var _2a2=!1,_3a2=!1,_4a2=!0;function _5a2(_6a2){if(_6a2){_2a2=true}else {_3a2=false;_2a2=false;if(_4a2){_7a2=false}}}function _8a2(){if(window["page"]===undefined){_4a2=false;window.addEventListener("focus",function(){_5a2(false)});window.addEventListener("blur",function(){_5a2(true)});window.addEventListener("focus",function(){if(typeof yourGameVariable!=="undefined"){yourGameVariable.restartGraphics();}});window.addEventListener("click",
+_I92=3,_J92=4,_K92=5,_L92=6,_M92=7,_N92=8,_O92=9,_P92=10,_Q92=11,_R92=[0,0,0],_S92=[0,0,0],_T92=[0,0,0,0,0,0],_U92=[0,0,0],_V92=[0,0,0],_W92=[0,0,0],_X92=[0,0,0],_Y92=[0,0,0],_Z92=[0,0,0],__92=[0,0,0],_0a2=0,_1a2=0;var _2a2=!1,_3a2=!1,_4a2=!0;function _5a2(_6a2){if(_6a2){_2a2=true}else {_3a2=false;_2a2=false;if(_4a2){_7a2=false}}}function _8a2(){if(window["page"]===undefined){_4a2=false;window.addEventListener("focus",function(){_5a2(false)});window.addEventListener("blur",function(){_5a2(true)});window.addEventListener("click",
 function(){_5a2(false)})}}function _9a2(){if(_2a2){_3a2=true;_2a2=false}else if(_3a2){_3a2=false;if(_4a2){_7a2=true}}}function _aa2(){var _5V,_C4,_ba2;var _pl=null;if(_Kb._ql){_pl=_Kb._sl}var _yo=_Kb._gN1._yo;var _pe=_ca2++;for(var _da2=0;_da2<_yo.length;_da2++){var _Gy=_yo[_da2];var _Ny=_Gy._Ny;if(!_Gy._lE&&(_Gy._ea2<=_pe)){if(_Ny._fa2[_ga2]){var _ha2=false;if(_zJ(_Gy._sc)||_zJ(_Gy.__y)){_5V=_Gy._ia2();_ha2=((_5V.right<0)||(_5V.left>_Kb._9E())||(_5V.bottom<0)||(_5V.top>_Kb._aE()));}else {_ha2=((_Gy.x<0)||(_Gy.x>_Kb._9E())||(_Gy.y<0)||(_Gy.y>_Kb._aE()))}
 if(_ha2){if(!_Gy._ja2){_Gy._Dc(_ga2,_ka2,_Gy,_Gy)}}_Gy._ja2=_ha2}if(_Ny._fa2[_la2]){if(_zJ(_Gy._sc)||_zJ(_Gy.__y)){_5V=_Gy._ia2();if((_5V.left<0)||(_5V.right>_Kb._9E())||(_5V.top<0)||(_5V.bottom>_Kb._aE())){_Gy._Dc(_la2,_ka2,_Gy,_Gy)}}else {if((_Gy.x<0)||(_Gy.x>_Kb._9E())||(_Gy.y<0)||(_Gy.y>_Kb._aE())){_Gy._Dc(_la2,_ka2,_Gy,_Gy)}}}if(_pl){for(_ba2=0;_ba2<_pl.length;_ba2++){var _ma2=_pl[_ba2];if(_ma2._M4){var _na2=_ma2._5W;var _oa2=_ma2._6W;var _pa2=_ma2._5W+_ma2._7W;var _qa2=_ma2._6W+_ma2._8W;var _R82=_nW._B82(_ma2._ra2);
 if(_R82!=null){_na2=_R82._992();_oa2=_R82._b92();_pa2=_R82._992()+_R82._a92();_qa2=_R82._b92()+_R82._c92()}if(_Ny._fa2[_sa2+_ba2]){if(_zJ(_Gy._sc)||_zJ(_Gy.__y)){_5V=_Gy._ia2();if((_5V.right<_na2)||(_5V.left>_pa2)||(_5V.bottom<_oa2)||(_5V.top>_qa2)){_Gy._Dc(_sa2+_ba2,_ka2,_Gy,_Gy)}}else {if((_Gy.x<_na2)||(_Gy.x>_pa2)||(_Gy.y<_oa2)||(_Gy.y>_qa2)){_Gy._Dc(_sa2+_ba2,_ka2,_Gy,_Gy)}}}if(_Ny._fa2[_ta2+_ba2]){if(_zJ(_Gy._sc)||_zJ(_Gy.__y)){var _ua2=true;_5V=_Gy._ia2();if((_5V.right<_na2)||(_5V.left>_pa2)||(_5V.bottom<_oa2)||(_5V.top>_qa2)){
