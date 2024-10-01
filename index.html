@@ -93,7 +93,16 @@
         <div class="gm4html5_div_class" id="gm4html5_div_id">
             
             <!-- Builtin injector for splash screen -->
-            
+
+            <!-- Additional code end -->
+
+            <!-- Addition to disable long pause on 'touchstart' -->
+            <!-- event, for gesture detection                   -->
+            <script>
+                document.addEventListener('touchstart', e => {
+                    e.preventDefault();
+                }, {passive: false})
+            </script>
 
             <!-- Create the canvas element the game draws to -->
             <canvas id="canvas" width="393" height="655" >
