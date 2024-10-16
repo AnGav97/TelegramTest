@@ -94,7 +94,24 @@
             
             <!-- Builtin injector for splash screen -->
             
+            <!-- Custom PreBody code is injected here -->
+    
 
+    <body>
+        <div class="gm4html5_div_class" id="gm4html5_div_id">
+            
+            <!-- Builtin injector for splash screen -->
+            
+            <!-- Additional code end -->
+
+            <!-- Addition to disable long pause on 'touchstart' -->
+            <!-- event, for gesture detection                   -->
+            <script>
+                document.addEventListener('touchstart', e => {
+                    e.preventDefault();
+                }, {passive: false})
+            </script>
+            
             <!-- Create the canvas element the game draws to -->
             <canvas id="canvas" width="720" height="1280" >
                 <p>Your browser doesn't support HTML5 canvas.</p>
