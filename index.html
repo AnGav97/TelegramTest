@@ -136,6 +136,37 @@
           });
         </script>
 
+        <script>
+          // Функции для паузы и продолжения игры
+          function pauseGame() {
+            if (typeof GameMaker_Pause === "function") {
+              GameMaker_Pause();
+            } else {
+              // Если движок не предоставляет встроенную функцию, реализуйте свою логику паузы
+              console.log("Пауза игры");
+              // Например, можно остановить анимации, таймеры и т.д.
+            }
+          }
+        
+          function resumeGame() {
+            if (typeof GameMaker_Resume === "function") {
+              GameMaker_Resume();
+            } else {
+              // Реализуйте логику продолжения игры
+              console.log("Возобновление игры");
+              // Например, можно восстановить состояние таймеров, анимаций и т.д.
+            }
+          }
+        
+          // Отслеживание изменений видимости страницы
+          document.addEventListener("visibilitychange", function() {
+              if (document.hidden) {
+                  pauseGame();
+              } else {
+                  resumeGame();
+              }
+          });
+        </script>
 
         <!-- Builtin injector for injecting google analytics code -->
         
