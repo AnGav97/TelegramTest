@@ -109,32 +109,7 @@
 
         <script>window.onload = GameMaker_Init;</script>
 
-        <script>
-          function handleResize() {
-              var canvas = document.getElementById('canvas');
-              // Пример пересчёта размеров canvas
-              canvas.width = window.innerWidth;
-              canvas.height = window.innerHeight;
-              // Если движок поддерживает динамическое масштабирование, вызовите его метод:
-              if (typeof GameMaker_Resize === 'function') {
-                  GameMaker_Resize();
-              }
-          }
         
-          window.addEventListener('resize', handleResize);
-          window.addEventListener('orientationchange', function() {
-              // Задержка для корректного обновления размеров
-              setTimeout(handleResize, 300);
-          });
-        
-          // Если нужно, можно добавить обработчик видимости для восстановления игры
-          document.addEventListener("visibilitychange", function() {
-              if (!document.hidden) {
-                  // Например, перезагружаем страницу
-                  window.location.reload();
-              }
-          });
-        </script>
 
         <script>
           // Функции для паузы и продолжения игры
