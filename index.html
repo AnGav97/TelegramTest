@@ -15,7 +15,7 @@
         <meta http-equiv="pragma" content="no-cache"/>
 
         <!-- Set the title bar of the page -->
-        <title>Created with GameMaker</title>
+        <title>Leading the souls</title>
 
         <!-- Custom PreStyle code is injected here -->
         
@@ -93,33 +93,16 @@
         <div class="gm4html5_div_class" id="gm4html5_div_id">
             
             <!-- Builtin injector for splash screen -->
-            
-            <!-- Custom PreBody code is injected here -->
-    
+            <img src="Leading the souls/splash.png" id="GM4HTML5_loadingscreen" alt="GameMaker:HTML5 loading screen" style="display:none;"/>
 
-    <body>
-        <div class="gm4html5_div_class" id="gm4html5_div_id">
-            
-            <!-- Builtin injector for splash screen -->
-            
-            <!-- Additional code end -->
-
-            <!-- Addition to disable long pause on 'touchstart' -->
-            <!-- event, for gesture detection                   -->
-            <script>
-                document.addEventListener('touchstart', e => {
-                    e.preventDefault();
-                }, {passive: false})
-            </script>
-            
             <!-- Create the canvas element the game draws to -->
-            <canvas id="canvas" width="720" height="1280" >
+            <canvas id="canvas" width="1280" height="720" style="position: absolute; top: 50%; left: 50%; bottom: -50%; right: -50%; transform: translate(-50%, -50%);">
                 <p>Your browser doesn't support HTML5 canvas.</p>
             </canvas>
         </div>
 
         <!-- Run the game code -->
-        <script type="text/javascript" src="html5game/Telegram game.js?cachebust=86577035"></script>
+        <script type="text/javascript" src="Leading the souls/Leading the souls.js?cachebust=800207107"></script>
 
         <!-- Builtin injector for injecting runner path -->
         
