@@ -109,9 +109,36 @@
 
         <script>window.onload = GameMaker_Init;</script>
 
+        <script>
+        // Обработчик для события visibilitychange – когда окно становится активным
+        document.addEventListener('visibilitychange', function() {
+          if (!document.hidden) {
+            console.log('Документ снова видим. Генерируем событие resize.');
+            window.dispatchEvent(new Event('resize'));
+          }
+        });
+        
+        // Watchdog, который периодически проверяет активность игры и, если нет обновлений, посылает событие resize
+        (function watchdog() {
+          let lastTime = Date.now();
+          function check() {
+            const now = Date.now();
+            // Если прошло более 1000 мс с последнего кадра, генерируем событие resize
+            if (now - lastTime > 1000) {
+              console.log('Watchdog: нет обновлений, генерируем событие resize.');
+              window.dispatchEvent(new Event('resize'));
+            }
+            lastTime = now;
+            requestAnimationFrame(check);
+          }
+          requestAnimationFrame(check);
+        })();
+        </script>
+
+
         <!-- Builtin injector for injecting google analytics code -->
         
-
+        
     </body>
 
     <!-- Custom PostBody code is injected here -->
