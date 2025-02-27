@@ -110,30 +110,42 @@
         <script>window.onload = GameMaker_Init;</script>
 
         <script>
-        // Обработчик для события visibilitychange – когда окно становится активным
+        // Функция, которая пытается принудительно перерисовать canvas
+        function forceCanvasRedraw() {
+          const canvas = document.querySelector('canvas');
+          if (canvas) {
+            // Способ 1: временно скрыть и показать canvas
+            canvas.style.display = 'none';
+            setTimeout(() => { canvas.style.display = 'block'; }, 50);
+        
+            // Способ 2: немного изменить размер canvas (можно оставить один из способов, или оба)
+            const originalWidth = canvas.width;
+            canvas.width = originalWidth + 1;
+            setTimeout(() => { canvas.width = originalWidth; }, 50);
+          }
+        }
+        
+        // Обработчик при возвращении фокуса окна
+        window.addEventListener('focus', () => {
+          console.log('Фокус получен. Принудительная перерисовка canvas.');
+          forceCanvasRedraw();
+        });
+        
+        // Обработчик при изменении видимости страницы
         document.addEventListener('visibilitychange', function() {
           if (!document.hidden) {
-            console.log('Документ снова видим. Генерируем событие resize.');
-            window.dispatchEvent(new Event('resize'));
+            console.log('Страница стала видимой. Принудительная перерисовка canvas.');
+            forceCanvasRedraw();
           }
         });
         
-        // Watchdog, который периодически проверяет активность игры и, если нет обновлений, посылает событие resize
-        (function watchdog() {
-          let lastTime = Date.now();
-          function check() {
-            const now = Date.now();
-            // Если прошло более 1000 мс с последнего кадра, генерируем событие resize
-            if (now - lastTime > 1000) {
-              console.log('Watchdog: нет обновлений, генерируем событие resize.');
-              window.dispatchEvent(new Event('resize'));
-            }
-            lastTime = now;
-            requestAnimationFrame(check);
-          }
-          requestAnimationFrame(check);
-        })();
+        // Также можно попытаться обработать событие resize (например, при повороте устройства)
+        window.addEventListener('resize', () => {
+          console.log('Изменение размера окна. Принудительная перерисовка canvas.');
+          forceCanvasRedraw();
+        });
         </script>
+
 
 
         <!-- Builtin injector for injecting google analytics code -->
