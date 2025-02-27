@@ -112,37 +112,39 @@
         <script>
         // Функция, которая пытается принудительно перерисовать canvas
         function forceCanvasRedraw() {
-          const canvas = document.querySelector('canvas');
-          if (canvas) {
-            // Способ 1: временно скрыть и показать canvas
-            canvas.style.display = 'none';
-            setTimeout(() => { canvas.style.display = 'block'; }, 50);
-        
-            // Способ 2: немного изменить размер canvas (можно оставить один из способов, или оба)
-            const originalWidth = canvas.width;
-            canvas.width = originalWidth + 1;
-            setTimeout(() => { canvas.width = originalWidth; }, 50);
+            const canvas = document.querySelector('canvas');
+                if (canvas) {
+                    // Способ 1: временно скрыть и показать canvas
+                    canvas.style.display = 'none';
+                    setTimeout(() => { canvas.style.display = 'block'; }, 50);
+                    
+                    // Способ 2: немного изменить размер canvas (можно оставить один из способов, или оба)
+                    const originalWidth = canvas.width;
+                    canvas.width = originalWidth + 1;
+                    setTimeout(() => { canvas.width = originalWidth; }, 50);
           }
         }
         
         // Обработчик при возвращении фокуса окна
         window.addEventListener('focus', () => {
-          console.log('Фокус получен. Принудительная перерисовка canvas.');
-          forceCanvasRedraw();
+            console.log('Фокус получен. Принудительная перерисовка canvas.');
+            forceCanvasRedraw();
         });
         
         // Обработчик при изменении видимости страницы
         document.addEventListener('visibilitychange', function() {
-          if (!document.hidden) {
-            console.log('Страница стала видимой. Принудительная перерисовка canvas.');
-            forceCanvasRedraw();
-          }
+            if (!document.hidden) {
+                console.log('Страница стала видимой. Принудительная перерисовка canvas.');
+                forceCanvasRedraw();
+                window.onload = GameMaker_Init;
+            }
         });
         
         // Также можно попытаться обработать событие resize (например, при повороте устройства)
         window.addEventListener('resize', () => {
-          console.log('Изменение размера окна. Принудительная перерисовка canvas.');
-          forceCanvasRedraw();
+            console.log('Изменение размера окна. Принудительная перерисовка canvas.');
+            forceCanvasRedraw();
+            window.onload = GameMaker_Init;
         });
         </script>
 
