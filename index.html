@@ -125,18 +125,12 @@
           }
         }
         
-        // Обработчик при возвращении фокуса окна
-        window.addEventListener('focus', () => {
-            console.log('Фокус получен. Принудительная перерисовка canvas.');
-            forceCanvasRedraw();
-        });
-        
         // Обработчик при изменении видимости страницы
         document.addEventListener('visibilitychange', function() {
             if (!document.hidden) {
                 console.log('Страница стала видимой. Принудительная перерисовка canvas.');
                 forceCanvasRedraw();
-                window.onload = GameMaker_Init;
+                window.onplay = GameMaker_Init;
             }
         });
         
@@ -144,7 +138,7 @@
         window.addEventListener('resize', () => {
             console.log('Изменение размера окна. Принудительная перерисовка canvas.');
             forceCanvasRedraw();
-            window.onload = GameMaker_Init;
+            window.onplay = GameMaker_Init;
         });
         </script>
 
